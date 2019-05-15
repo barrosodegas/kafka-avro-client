@@ -38,7 +38,7 @@ public final class ClientConstants {
 	public static final String TOPIC_NAME_SALES = "retail-sales";
 
 	/**
-	 * COnsumer group ID.
+	 * Consumer group ID.
 	 */
 	public static final String GROUP_ID_CONSUMERS = "consumerGroup";
 	
