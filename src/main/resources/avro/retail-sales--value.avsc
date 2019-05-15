@@ -1,0 +1,74 @@
+[
+	{
+		"type": "record",
+		"namespace": "br.com.barroso.kafka.avroclient.avro",
+		"name": "Customer",
+		"fields": [
+			{"name": "code", "type": "string", "doc": "Customer code."},
+			{"name": "first_name", "type": "string", "doc": "Customer first name."},
+			{"name": "last_name", "type": "string", "doc": "Customer last code."},
+			{"name": "email", "type": "string", "default": null, "doc": "Customer email."}
+		]
+	},
+	{
+		"type": "record",
+		"namespace": "br.com.barroso.kafka.avroclient.avro",
+		"name": "Product",
+		"fields": [
+			{"name": "code", "type": "string", "doc": "Product code."},
+			{"name": "product_name", "type": "string", "doc": "Product name."},
+			{"name": "product_price", "type": "double", "doc": "Product price."},
+			{"name": "product_amount", "type": "int", "default": 1, "doc": "Product amount."}
+		]
+	},
+	{
+		"type": "record",
+		"namespace": "br.com.barroso.kafka.avroclient.avro",
+		"name": "Order",
+		"fields": [
+			{"name": "code", "type": "string", "doc": "Order code."},
+			{"name": "customer", "type": "br.com.barroso.kafka.avroclient.avro.Customer", "doc": "Customer."},
+			{"name": "products", "type": {"type": "array", "items": "br.com.barroso.kafka.avroclient.avro.Product"}, "doc": "Product list."}
+		]
+	},
+	{
+		"type": "record",
+		"namespace": "br.com.barroso.kafka.avroclient.avro",
+		"name": "Payment",
+		"fields": [
+			{"name": "code", "type": "string", "doc": "Payment code."},
+			{"name": "order", "type": "br.com.barroso.kafka.avroclient.avro.Order", "doc": "Customer order."},
+			{"name": "total_quantity", "type": "int", "doc": "Total order quantity."},
+			{"name": "total_value", "type": "double", "doc": "Total order value."}
+		]
+	},
+	{
+		"type": "record",
+		"namespace": "br.com.barroso.kafka.avroclient.avro",
+		"name": "Invoice",
+		"fields": [
+			{"name": "code", "type": "string", "doc": "Payment code."},
+			{"name": "payment", "type": "br.com.barroso.kafka.avroclient.avro.Payment", "doc": "Order payment."}
+		]
+	},
+	{
+		"type": "record",
+		"namespace": "br.com.barroso.kafka.avroclient.avro",
+		"name": "StockSeparation",
+		"fields": [
+			{"name": "code", "type": "string", "doc": "Stock separation code."},
+			{"name": "order", "type": "br.com.barroso.kafka.avroclient.avro.Order", "doc": "Order."},
+			{"name": "invoice_code", "type": "string", "doc": "Invoice code."}
+		]
+	},
+	{
+		"type": "record",
+		"namespace": "br.com.barroso.kafka.avroclient.avro",
+		"name": "ConfirmDelivery",
+		"fields": [
+			{"name": "code", "type": "string", "doc": "Confirmation delivery code."},
+			{"name": "order", "type": "br.com.barroso.kafka.avroclient.avro.Order", "doc": "Order."},
+			{"name": "invoice_code", "type": "string", "doc": "Invoice code."}
+		]
+	}
+]
